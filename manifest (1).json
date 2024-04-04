@@ -1,0 +1,18 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "pt-shanachan.vercel",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "pt-shanachan.vercel",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "type": "image/jpeg",
+      "sizes": "236x236"
+    }
+  ]
+}
