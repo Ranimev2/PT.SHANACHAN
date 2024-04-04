@@ -5,6 +5,7 @@ self.addEventListener('install', event => {
         '/',
         '/index.html',
         '/favicon.ico',
+        '/style.css'
       ]);
     })
   );
