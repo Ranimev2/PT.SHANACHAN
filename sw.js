@@ -1,9 +1,9 @@
-var cacheName = 'PT.SHANACHAN';
+var cacheName = 'PTSHANACHAN';
 var filesToCache = [
   '/',
-  '/index.html',
-  '/style.css',
-  '/js/main.js'
+  'App/js/web.webmanifest',
+    'Apps/js/register.js',
+    'App/img/icon.png',
 ];
 
 /* Start the service worker and cache all of the app's content */
