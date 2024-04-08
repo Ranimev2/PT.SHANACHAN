@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAKAMIYA APP</title>
+    <link rel="stylesheet" href="./app/takamiyanime/styles.css">
+    <link rel="manifest" href="./app/takamiyanime/manifest.json">
+</head>
+<body>
+    <header>
+        <h1>Takamiya App</h1>
+        <nav>
+            <button id="all-anime-btn">All Anime</button>
+            <button id="bookmarked-anime-btn">Bookmarked Anime</button>
+        </nav>
+    </header>
+    <main id="anime-list">
+        <!-- Anime list will be populated dynamically using JavaScript -->
+    </main>
+    <div id="anime-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <button id="bookmark-btn"></button>
+        </div>
+    </div>
+
+    <script src="/app/tKamiyanime/app.js" async></script>
+</body>
+  </html>
+  
