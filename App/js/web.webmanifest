@@ -4,7 +4,7 @@
     "description": "Aplikasi SHANACHAN",
     "icons": [
         {
-            "src": "../App/img/icon.png",
+            "src": "../img/icon.png",
             "sizes": "30x30",
             "type": "image/png"
         }
