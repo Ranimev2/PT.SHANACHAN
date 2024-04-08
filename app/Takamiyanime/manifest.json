@@ -1,7 +1,7 @@
 {
     "name": "Takamiya App",
     "short_name": "Takamiya",
-    "start_url": "/index.html",
+    "start_url": "/app/Takamiyanime/index.html",
     "display": "standalone",
     "background_color": "#fff",
     "theme_color": "#333",
