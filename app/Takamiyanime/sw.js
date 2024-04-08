@@ -1,4 +1,4 @@
-const CACHE_NAME = 'anime-website-cache-v1';
+const CACHE_NAME = 'TakamiyaApp';
 const urlsToCache = [
     '/',
     '/app/Takamiyanime/index.html',
@@ -44,7 +44,7 @@ self.addEventListener('activate', event => {
         caches.keys().then(cacheNames => {
             return Promise.all(
                 cacheNames.filter(cacheName => {
-                    return cacheName.startsWith('anime-website-cache-') && cacheName !== CACHE_NAME;
+                    return cacheName.startsWith('TakamiyaApp') && cacheName !== CACHE_NAME;
                 }).map(cacheName => {
                     return caches.delete(cacheName);
                 })
