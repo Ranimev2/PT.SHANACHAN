@@ -1,10 +1,10 @@
 const CACHE_NAME = 'pwa-cache-v1'; // Change this to update the cache
 const cacheUrls = [
     '/',
-    '/index.html', // Add any other HTML files you have
-    '/styles.css',
-    '/app.js',
-    '/pwa.png',
+    '/app/Anime/index.html', // Add any other HTML files you have
+    '/app/Anime/styles.css',
+    '/app/Anime/app.js',
+    '/app/Anime/pwa.png',
     // Add other assets and resources you want to cache
 ];
 
