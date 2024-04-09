@@ -30,7 +30,7 @@ const handleError = (done) => {
 
 function html(done) {
     pump([
-        src(['public/*.html']),
+        src(['app/*.html']),
         livereload()
     ], handleError(done));
 }
