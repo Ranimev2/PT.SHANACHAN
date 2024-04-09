@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sound Dashboard</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('favicon1.jpg'); /* Ganti background_image.jpg dengan URL atau path file latar belakang Anda */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.8); /* Ubah opacity sesuai kebutuhan */
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  #volume-control {
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Sound Dashboard</h1>
+  <div>
+    <label for="volume-control">Volume Control:</label>
+    <input type="range" id="volume-control" min="0" max="100" value="50" step="1">
+  </div>
+</div>
+
+<script>
+  const volumeControl = document.getElementById('volume-control');
+  const audio = new Audio(); // Buat elemen audio
+
+  // Fungsi untuk mengatur volume berdasarkan perubahan pada slider
+  volumeControl.addEventListener('input', function() {
+    audio.volume = this.value / 100;
+  });
+
+  // Contoh pengaturan audio
+  audio.src = 'sample_audio.mp3'; // Ganti sample_audio.mp3 dengan URL atau path file audio Anda
+  audio.loop = true; // Jika ingin audio diputar ulang, atur true, jika tidak, atur false
+  audio.volume = volumeControl.value / 100; // Atur volume awal sesuai dengan nilai slider saat memuat
+
+  // Memulai audio
+  audio.play();
+</script>
+
+</body>
+</html>
