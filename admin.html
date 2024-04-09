@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background_image.jpg'); /* Ganti background_image.jpg dengan URL atau path file latar belakang Anda */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.8); /* Ubah opacity sesuai kebutuhan */
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #create-membership {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Admin Dashboard</h1>
+  <button id="play-sound" class="button">Play Sound</button>
+  <button id="create-membership" class="button">Create Membership</button>
+</div>
+
+<audio id="button-sound">
+  <source src="button_click.mp3" type="audio/mpeg"> <!-- Ganti button_click.mp3 dengan URL atau path file suara Anda -->
+</audio>
+
+<script>
+  const buttonSound = document.getElementById('button-sound');
+  const playButton = document.getElementById('play-sound');
+  const createMembershipButton = document.getElementById('create-membership');
+
+  // Memainkan suara saat tombol ditekan
+  function playButtonClickSound() {
+    buttonSound.currentTime = 0; // Kembalikan ke waktu awal untuk memungkinkan pemutaran berulang
+    buttonSound.play();
+  }
+
+  playButton.addEventListener('click', function() {
+    playButtonClickSound();
+  });
+
+  createMembershipButton.addEventListener('click', function() {
+    playButtonClickSound();
+    // Logika untuk membuat keanggotaan akan ditambahkan di sini
+    alert('Membership created!');
+  });
+</script>
+
+</body>
+</html>
