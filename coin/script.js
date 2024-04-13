@@ -2,7 +2,7 @@
 async function searchSong(query) {
   try {
     // Gunakan API dari layanan streaming musik (contoh: Spotify)
-    const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=track`);
+    const response = await fetch("https://api.spotify.com/v1/audio-analysis/2takcwOaAZWiXQijPHIx7B"`);
     const data = await response.json();
 
     // Ambil hasil pencarian lagu
