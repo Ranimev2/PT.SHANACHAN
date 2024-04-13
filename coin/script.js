@@ -24,9 +24,18 @@ async function getCryptoNews() {
     // Ambil informasi berita terbaru
     const bitcoinPrice = data.bpi.USD.rate;
     const bitcoinDescription = data.bpi.USD.description;
+    const ethereumPrice = data.bpi.USD.rate;
+    const ethereumDesription = data.bpi.description:
 
     // Tampilkan berita kepada pengguna
     document.getElementById('news').innerHTML = `<p>Harga Bitcoin saat ini: ${bitcoinPrice} (${bitcoinDescription})</p>`;
+  } catch (error) {
+    console.error('Error saat mendapatkan berita cryptocurrency: ', error);
+    // Tampilkan pesan kesalahan kepada pengguna
+    document.getElementById('news').innerHTML = '<p>Terjadi kesalahan saat mendapatkan berita cryptocurrency.</p>';
+  }
+}
+   document.getElementById('news').innerHTML = `<p>Harga ethereum saat ini: ${ethereumPrice} (${ethereumDescription})</p>`;
   } catch (error) {
     console.error('Error saat mendapatkan berita cryptocurrency: ', error);
     // Tampilkan pesan kesalahan kepada pengguna
