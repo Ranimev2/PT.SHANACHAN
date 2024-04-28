@@ -14,17 +14,20 @@
     <script>
         function sendMessage() {
             var userMessage = document.getElementById('user_message').value;
-            fetch('/BOT/api/send_message', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({message: userMessage})
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('bot_response').innerText = data.response;
-            });
+            var userNumber = prompt("Please enter your WhatsApp number (including country code, e.g., +123456789):");
+            if (userNumber != null) {
+                fetch('/api/send_message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({message: userMessage, user_number: userNumber})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('bot_response').innerText = data.response;
+                });
+            }
         }
     </script>
 </body>
