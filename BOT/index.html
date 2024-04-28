@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp AI Bot</title>
+</head>
+<body>
+    <h1>WhatsApp AI Bot</h1>
+    <textarea id="user_message" rows="4" cols="50"></textarea>
+    <button onclick="sendMessage()">Send Message</button>
+    <div id="bot_response"></div>
+
+    <script>
+        function sendMessage() {
+            var userMessage = document.getElementById('user_message').value;
+            fetch('/BOT/api/send_message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({message: userMessage})
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('bot_response').innerText = data.response;
+            });
+        }
+    </script>
+</body>
+</html>
