@@ -1,0 +1,66 @@
+from fpdf import FPDF
+
+# Create instance of FPDF class
+pdf = FPDF()
+
+# Add a page
+pdf.add_page()
+
+# Set title
+pdf.set_font("Arial", size = 16)
+pdf.cell(200, 10, txt = "Manacoin Whitepaper", ln = True, align = 'C')
+
+# Set version and date
+pdf.set_font("Arial", size = 12)
+pdf.cell(200, 10, txt = "Version 1.0 - 2024-06-18", ln = True, align = 'C')
+pdf.cell(200, 10, txt = "Authors: Tim Manacoin", ln = True, align = 'C')
+
+# Add a line break
+pdf.ln(10)
+
+# Add sections and content
+content = [
+    ("Pendahuluan", "Manacoin adalah mata uang kripto yang diciptakan untuk merevolusi cara kita bertransaksi di dunia digital. Dengan menyediakan solusi yang cepat, aman, dan hemat biaya, Manacoin bertujuan untuk menjadi mata uang pilihan dalam berbagai aplikasi digital."),
+    ("Latar Belakang", "Pertumbuhan pesat dunia digital memerlukan metode transaksi yang efisien dan dapat diandalkan. Mata uang tradisional sering kali menghadapi tantangan seperti biaya tinggi dan waktu transaksi yang lambat. Manacoin hadir untuk mengatasi masalah ini dengan teknologi blockchain."),
+    ("Teknologi", [
+        ("Blockchain", "Blockchain polygon, Manacoin dirancang untuk mendukung transaksi yang cepat dan aman. Dengan struktur data terdistribusi, blockchain memastikan bahwa tidak ada satu pihak pun yang dapat mengontrol atau memanipulasi data."),
+        ("Algoritma Konsensus", "Manacoin menggunakan algoritma konsensus proof-of-stake (PoS). Teknologi ini tidak hanya lebih ramah lingkungan dibandingkan proof-of-work (PoW), tetapi juga memberikan insentif kepada pengguna untuk menjaga keamanan jaringan."),
+        ("Keamanan", "Manacoin menggunakan enkripsi canggih untuk melindungi data dan transaksi pengguna. Setiap transaksi divalidasi oleh jaringan, memastikan integritas dan keaslian data.")
+    ]),
+    ("Aplikasi", [
+        ("Game Online", "Manacoin memungkinkan transaksi mikro yang cepat dan murah, ideal untuk pembelian dalam game."),
+        ("Platform Media Sosial", "Manacoin dapat digunakan untuk memberi tip, membeli konten premium, dan berpartisipasi dalam ekonomi digital di platform media sosial."),
+        ("Pasar Digital", "Manacoin memfasilitasi transaksi yang aman dan efisien di pasar digital, termasuk e-commerce dan platform freelancing.")
+    ]),
+    ("Roadmap", [
+        ("Fase 1: Peluncuran", "Pengembangan dan peluncuran blockchain Manacoin. Distribusi awal koin kepada pemegang."),
+        ("Fase 2: Ekspansi", "Kemitraan dengan platform game dan media sosial. Peningkatan kapasitas jaringan dan fitur keamanan."),
+        ("Fase 3: Penerimaan Global", "Adopsi luas oleh pengguna di seluruh dunia. Pengembangan aplikasi dan layanan baru yang menggunakan Manacoin.")
+    ]),
+    ("Kesimpulan", "Manacoin adalah solusi inovatif untuk transaksi digital. Dengan teknologi blockchain yang aman dan efisien, Manacoin siap untuk mengubah cara kita berinteraksi di dunia digital. Kami mengundang Anda untuk bergabung dengan kami dalam perjalanan ini dan menjadi bagian dari masa depan transaksi digital.")
+]
+
+# Function to add a section
+def add_section(title, content):
+    pdf.set_font("Arial", size = 14)
+    pdf.cell(200, 10, txt = title, ln = True)
+    pdf.set_font("Arial", size = 12)
+    if isinstance(content, list):
+        for subsection_title, subsection_content in content:
+            pdf.set_font("Arial", 'B', size = 12)
+            pdf.cell(200, 10, txt = f"  {subsection_title}", ln = True)
+            pdf.set_font("Arial", size = 12)
+            pdf.multi_cell(0, 10, txt = f"    {subsection_content}")
+    else:
+        pdf.multi_cell(0, 10, txt = content)
+
+# Add all sections to the PDF
+for section_title, section_content in content:
+    add_section(section_title, section_content)
+    pdf.ln(5)
+
+# Save the PDF to a file
+pdf_file_path = "/mnt/data/Manacoin_Whitepaper.pdf"
+pdf.output(pdf_file_path)
+
+pdf_file_path
