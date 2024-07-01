@@ -1,41 +1,47 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const API_KEY = 'sk-proj-wgEFHaCT0hBQAT5DcEe7T3BlbkFJYy6X9hqGAC63OFSmH3BH';
-    const API_URL = 'https://api.openai.com/v1/engines/davinci-codex/completions';
+document.addEventListener("DOMContentLoaded", function() {
+    const loadingScreen = document.getElementById("loading");
+    loadingScreen.style.display = "none";
+});
 
-    // Remove loading screen
-    const loadingScreen = document.getElementById('loading-screen');
-    loadingScreen.style.display = 'none';
+async function sendMessage() {
+    const userInput = document.getElementById("userInput").value;
+    const responseDiv = document.getElementById("response");
+    const loadingScreen = document.getElementById("loading");
 
-    // Handle Chat Form
-    const chatForm = document.getElementById('chat-form');
-    chatForm.addEventListener('submit', event => {
-        event.preventDefault();
-        const userInput = document.getElementById('user-input').value;
+    const apiKey = 'sk-proj-wgEFHaCT0hBQAT5DcEe7T3BlbkFJYy6X9hqGAC63OFSmH3BH';  // Ganti dengan API key Anda
+    const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
-        // Display loading indicator
-        const chatResponse = document.getElementById('chat-response');
-        chatResponse.innerHTML = 'Loading...';
+    const data = {
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: userInput }]
+    };
 
-        // Fetch response from OpenAI API
-        fetch(API_URL, {
+    try {
+        loadingScreen.style.display = "flex";
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${API_KEY}`
+                'Authorization': `Bearer ${apiKey}`
             },
-            body: JSON.stringify({
-                prompt: userInput,
-                max_tokens: 150
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const answer = data.choices[0].text.trim();
-            chatResponse.innerHTML = `<p>${answer}</p>`;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            chatResponse.innerHTML = 'Terjadi kesalahan. Silakan coba lagi.';
+            body: JSON.stringify(data)
         });
-    });
-});
+
+        const result = await response.json();
+        const message = result.choices[0].message.content;
+        responseDiv.value = message;
+    } catch (error) {
+        console.error('Error:', error);
+        responseDiv.value = 'Terjadi kesalahan, silakan coba lagi.';
+    } finally {
+        loadingScreen.style.display = "none";
+    }
+}
+
+function swapText() {
+    const userInput = document.getElementById("userInput");
+    const responseDiv = document.getElementById("response");
+    const temp = userInput.value;
+    userInput.value = responseDiv.value;
+    responseDiv.value = temp;
+}
