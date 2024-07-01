@@ -3,46 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHANA AI</title>
-    <link rel="stylesheet" href="/shanaai/style.css">
+    <title>Website AI dengan ChatGPT</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="loading-screen">SHANA AI...</div>
+    <div class="loading" id="loading">
+        <img src="https://source.unsplash.com/random/1920x1080" alt="Loading..." class="loading-img">
+        <p>Loading...</p>
+    </div>
 
-    <header>
-        <h1>SHANA AI Application</h1>
-        <nav>
-            <ul>
-                <li><a href="#chat">Chat dengan AI</a></li>
-                <li><a href="#crypto">Crypto Swap</a></li>
-                <li><a href="#about">Tentang Admin</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="chat">
-        <h2>Chat dengan AI</h2>
-        <form id="chat-form">
-            <input type="text" id="user-input" placeholder="Tanyakan sesuatu..." required>
-            <button type="submit">Kirim</button>
-        </form>
-        <div id="chat-response">
-            <!-- Respon AI akan ditampilkan di sini -->
+    <div class="container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1>Selamat Datang di Website AI dengan ChatGPT</h1>
+        <textarea id="userInput" rows="4" cols="50" placeholder="Ketik pesan Anda di sini..."></textarea>
+        <textarea id="response" rows="4" cols="50" placeholder="Respon akan ditampilkan di sini..." readonly></textarea>
+        <button onclick="sendMessage()">Kirim Pesan</button>
+        <button onclick="swapText()">Tukar Isi</button>
+        <div>
+            <a href="https://www.example.com" target="_blank">Klik di sini untuk informasi lebih lanjut</a>
         </div>
-    </section>
-
-    <section id="crypto">
-        <h2>Crypto Swap</h2>
-        <a href="https://yourcryptoswaplink.com" target="_blank">
-            <button>Swap Crypto</button>
-        </a>
-    </section>
-
-    <section id="about">
-        <h2>Tentang Admin</h2>
-        <p>Admin: <span class="verified">Admin Name</span></p>
-    </section>
-
-    <script src="/shanaai/script.js"></script>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
