@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="FREE REST API">
+    <meta name="robots" content="archive, follow, imageindex, index, odp, snippet, translate">
+    <meta name="author" content="shana">
+    <title>shanachan - API</title>
+    <meta property="og:site_name" name="og:site_name" content="SHANA APIs">
+    <meta property="og:title" name="og:title" content="shana - REST APIs">
+    <meta property="og:url" name="og:url" content="https://pt-shanachan.vercel.app/api/">
+    <meta property="og:image" name="og:image" content="../Api/assets/images/logo.png">
+    <meta property="og:description" name="og:description" content="Free Rest Api For You">
+    <link rel="stylesheet" href="../Api/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../Api/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../Api/assets/css/style.css">
+    <link rel="shortcut icon" href="../Api/assets/images/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+    <iframe src="../Api/assets/audio/audio.mp3" hidden="hidden" allow="autoplay"; encrypt-media></iframe>
+    </head>
+  
+  <body>
+  <body id="page-top" onload="getvisitor();">
+    <div class="container-scroller">
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-profile dropdown">
+              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                <div class="nav-profile-img">
+                  <img src="../Api/assets/images/logo.png" alt="image">
+                  <span class="availability-status online"></span>
+                </div>
+                <div class="nav-profile-text">
+                  <p class="mb-1 text-black">shana</p>
+                </div>
+              </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item" href="/about">
+                  <i class="mdi mdi-creation menu-icon"></i> About </a>
+              </div>
+            </li>
+            <li class="nav-item d-none d-lg-block full-screen-link">
+              <a class="nav-link">
+                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                <i class="mdi mdi-bell-outline"></i>
+                <span class="count-symbol bg-danger"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                <h6 class="p-3 mb-0">Notifications</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-success">
+                      <i class="mdi mdi-calendar"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                    <h6 class="preview-subject font-weight-normal mb-1">New fiture canvas api</h6>
+                  </div>
+                </a>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <div class="container-fluid page-body-wrapper">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="../Api/assets/images/logo.png" alt="profile">
+                  <span class="login-status online"></span>
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2">shana</span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+           <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-sosmed" aria-expanded="false" aria-controls="ui-sosmed">
+              <span class="menu-title">Social Media API</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-laptop menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-sosmed">
+              <ul class="nav flex-column sub-menu">
+  <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/telesticker?url=https://t.me/addstickers/c1129234339_by_HarukaAyaBot">Telegram Sticker</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/tiktok?url=https://vt.tiktok.com/ZSe8Xfwd1">Tiktok Download</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/igdl?url=https://www.instagram.com/p/CTMnneTl8YJ/?utm_medium=copy_link">Instagram Download</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/youtube?url=https://youtu.be/5C8yvJUVB-0">Youtube Download</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/twitter?url=https://twitter.com/PassengersMovie/status/821025484150423557">Twitter Download</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/pindl?url=https://id.pinterest.com/pin/361906520063070744">Pinterest Download</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/mediafire?url=https://www.mediafire.com/file/pwxob70rpgma9lz/GBWhatsApp_v8.75%2528Tutorial_Yud%2529.apk/file">MediaFire Download</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-canvas" aria-expanded="false" aria-controls="ui-canvas">
+              <span class="menu-title">Canvas API</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-eye menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-canvas">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/routes/api/canvas/welcome?pp=https://telegra.ph/file/88d818ebbc371788ed0be.jpg&nama=shana&bg=https://telegra.ph/file/3f4993d39b9994c54da94.jpg&namagc=bot+whatsapp&member=257">Welcome</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/routes/api/canvas/goodbye?pp=https://telegra.ph/file/88d818ebbc371788ed0be.jpg&nama=shana&bg=https://telegra.ph/file/3f4993d39b9994c54da94.jpg&member=257">Goodbye</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/routes/api/canvas/promote?pp=https://telegra.ph/file/88d818ebbc371788ed0be.jpg&nama=shana&namagc=bot+whatsapp&ppgc=https://telegra.ph/file/3f4993d39b9994c54da94.jpg&bg=https://telegra.ph/file/3f4993d39b9994c54da94.jpg&member=257">Promote</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/routes/api/canvas/demote?pp=https://telegra.ph/file/88d818ebbc371788ed0be.jpg&nama=shana&namagc=bot+whatsapp&ppgc=https://telegra.ph/file/3f4993d39b9994c54da94.jpg&bg=https://telegra.ph/file/3f4993d39b9994c54da94.jpg&member=257">Demote</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/routes/api/canvas/level?pp=https://telegra.ph/file/88d818ebbc371788ed0be.jpg&nama=shana&bg=https://telegra.ph/file/3f4993d39b9994c54da94.jpg&needxp=5000&currxp=6000&level=9&logorank=https://telegra.ph/file/88d818ebbc371788ed0be.jpg">Level</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/routes/api/canvas/levelup?pp=https://telegra.ph/file/88d818ebbc371788ed0be.jpg">Level up</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/routes/api/canvas/gfx1?teks=shana">Gfx 1</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/canvas/gfx2?teks=shNa">Gfx 2</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/canvas/gfx3?teks1=shana&teks2=dev">Gfx 3</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/canvas/gfx4?teks1=shana&teks2=dev">Gfx 4</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/canvas/gfx5?teks=shana">Gfx 5</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/canvas/customgfx1?teks=shana&bg=https://telegra.ph/file/88d818ebbc371788ed0be.jpg">Custom Gfx 1</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/canvas/customgfx2?teks1=shana&teks2=dev&bg=https://telegra.ph/file/88d818ebbc371788ed0be.jpg">Custom Gfx 2</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/canvas/gura?teks=shana">Gura</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/canvas/spongebob?image=https://telegra.ph/file/88d818ebbc371788ed0be.jpg">Spongebob</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/canvas/patrick?image=https://telegra.ph/file/88d818ebbc371788ed0be.jpg">Patrick</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/canvas/instagram?pp=https://telegra.ph/file/88d818ebbc371788ed0be.jpg&username=shana&post=19&followers=10000&following=230">Instagram profile</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/canvas/xnxx?pp=https://telegra.ph/file/88d818ebbc371788ed0be.jpg&username=shana">Xnxx profile</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-animanga" aria-expanded="false" aria-controls="ui-animanga">
+              <span class="menu-title">Anime & Manga API</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-cat menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-animanga">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/nhentai?code=298547">Nhentai</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/nHentaiSearch?query=gotoubun">Nhentai Search</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/doujindesuSearch?query=gotoubun">Doujindesu Search</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-search" aria-expanded="false" aria-controls="ui-search">
+              <span class="menu-title">Searching API</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-book-search menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-search">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/google?query=kapan+indonesia+merdeka">Google Search</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/pinterest?query=itsuki+nakano">Pinterest Search</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-water" aria-expanded="false" aria-controls="ui-water">
+              <span class="menu-title">Random Asupan API</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-book-watermenu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-water">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/asupan">Random asupan</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-image" aria-expanded="false" aria-controls="ui-image">
+              <span class="menu-title">Random Image API</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-image menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-image">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/randomimage/waifu">Ramdom Waifu</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/randomimage/neko">Random Neko</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/randomimage/husbu">Random Husbu</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/randomimage/loli">Random Loli</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/randomimage/milf">Random Milf</a></li>
+                <li class="nav-item"> <a class="nav-link" target="_blank" href="/api/randomimage/cosplay">Random Cosplay</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item sidebar-actions">
+              <span class="nav-link">
+                <div class="border-bottom">
+                  <h6 class="font-weight-normal mb-3">thank you for using my rest api ❤️</h6>
+                </div>
+                <div class="mt-4">
+                <span class="menu-icon">
+                     <i class="mdi mdi-whatsapp"></i>
+                   </span>
+                 <a class="menu-title" href="https://wa.me/6285974238938">WhatsApp</a>
+                </div>
+                <div class="mt-4">
+                <span class="menu-icon">
+                     <i class="mdi mdi-instagram"></i>
+                   </span>
+                 <a class="menu-title" href="https://instagram.com/rizaedtz01">Instagram</a>
+                </div>
+                <div class="mt-4">
+                <span class="menu-icon">
+                     <i class="mdi mdi-github-circle"></i>
+                   </span>
+                 <a class="menu-title" href="https://github.com/ranimev2">GitHub</a>
+                </div>
+              </span>
+            </li>
+          </ul>
+        </nav>
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-home"></i>
+                </span> Dashboard
+              </h3>
+              <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card ngentod-merah card-img-holder text-white">
+                  <div class="card-body">
+                    <h4 class="font-weight-normal mb-3">IP Address <i class="mdi mdi-access-point-network mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5" id="ip">Waiting...</h2>
+                    <h6 class="card-text">Your IP Address</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card ngentod-biru card-img-holder text-white">
+                  <div class="card-body">
+                    <h4 class="font-weight-normal mb-3">Visitor <i class="mdi mdi-eye mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5" id="visitor">Waiting...</h2>
+                    <h6 class="card-text">Visitor This Web</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card ngentod-ungu card-img-holder text-white">
+                  <div class="card-body">
+                    <h4 class="font-weight-normal mb-3">Date <i class="mdi mdi-calendar mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5" id="datetime">Waiting...</h2>
+                    <h6 class="card-text">Date Now</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 stretch-card grid-margin">
+                <div class="card ngentod-merah card-img-holder text-white">
+                  <div class="card-body">
+                    <h4 class="font-weight-normal mb-3">❤️ Thanks to for <i class="mdi mdi-star mdi-24px float-right"></i>
+                    </h4>
+                    <ul>
+                    <li>Allah SWT.</li>
+                    <li>My Parents</li>
+                    <li>My Friends</li>
+                     <li>TeamProviderXploit</li>
+                </ul>
+                    <h6 class="card-text">And all of you who have used the web wisely and always supported me.</h6>
+                  </div>
+                </div>
+              </div>
+          <footer class="footer">
+            <div class="container-fluid clearfix">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © SHANA 2024</span>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script>
+      swal({
+        title: 'Jangan Ditembak Bang :(',
+        text: 'Gunakan Dgn Bijak :)',
+        imageUrl: 'https://telegra.ph/file/0d270c3d50201b29f076e.jpg',
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: 'shana',
+        animation: true
+      })
+    </script>
+    <script src="../Api/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../Api/assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="../Api/assets/js/off-canvas.js"></script>
+    <script src="../Api/assets/js/hoverable-collapse.js"></script>
+    <script src="../Api/assets/js/misc.js"></script>
+    <script src="../Api/assets/js/dashboard.js"></script>
+    <script src="../Api/assets/js/todolist.js"></script>
+    <script src="../Api/assets/js/ipanda.js"></script>
+    <script src="../Api/assets/js/waktu.js"></script>
+    <script src="../Api/assets/js/visitor.js"></script>
+  </body> 
+
+
+ 
+
+ 
+  </html>
+          
