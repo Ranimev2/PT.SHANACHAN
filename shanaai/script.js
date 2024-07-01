@@ -1,46 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_KEY_NEWS = 'YOUR_NEWS_API_KEY_HERE';
-    const API_URL_NEWS = `https://newsapi.org/v2/top-headlines?country=id&apiKey=${API_KEY_NEWS}`;
-    const API_URL_CRYPTO = 'https://api.yourcryptoswapservice.com/swap';
+    const API_KEY = 'YOUR_OPENAI_API_KEY_HERE';
+    const API_URL = 'https://api.openai.com/v1/engines/davinci-codex/completions';
 
-    // Fetch Berita AI
-    fetch(API_URL_NEWS)
-        .then(response => response.json())
-        .then(data => {
-            const newsContent = document.getElementById('news-content');
-            data.articles.forEach(article => {
-                const articleElement = document.createElement('div');
-                articleElement.innerHTML = `
-                    <h3>${article.title}</h3>
-                    <p>${article.description}</p>
-                    <a href="${article.url}" target="_blank">Read more</a>
-                `;
-                newsContent.appendChild(articleElement);
-            });
-        })
-        .catch(error => console.error('Error fetching news:', error));
+    // Remove loading screen
+    const loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.style.display = 'none';
 
-    // Crypto Swap
-    document.getElementById('crypto-form').addEventListener('submit', event => {
+    // Handle Chat Form
+    const chatForm = document.getElementById('chat-form');
+    chatForm.addEventListener('submit', event => {
         event.preventDefault();
-        const amount = document.getElementById('crypto-amount').value;
-        const from = document.getElementById('crypto-from').value;
-        const to = document.getElementById('crypto-to').value;
+        const userInput = document.getElementById('user-input').value;
 
-        fetch(API_URL_CRYPTO, {
+        // Display loading indicator
+        const chatResponse = document.getElementById('chat-response');
+        chatResponse.innerHTML = 'Loading...';
+
+        // Fetch response from OpenAI API
+        fetch(API_URL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${API_KEY}`
             },
-            body: JSON.stringify({ amount, from, to })
+            body: JSON.stringify({
+                prompt: userInput,
+                max_tokens: 150
+            })
         })
         .then(response => response.json())
         .then(data => {
-            const resultElement = document.getElementById('crypto-result');
-            resultElement.innerHTML = `
-                <p>${amount} ${from} = ${data.result} ${to}</p>
-            `;
+            const answer = data.choices[0].text.trim();
+            chatResponse.innerHTML = `<p>${answer}</p>`;
         })
-        .catch(error => console.error('Error with crypto swap:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            chatResponse.innerHTML = 'Terjadi kesalahan. Silakan coba lagi.';
+        });
     });
 });
