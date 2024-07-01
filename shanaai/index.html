@@ -3,42 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHANA AI Web App</title>
+    <title>SHANA AI</title>
     <link rel="stylesheet" href="/shanaai/style.css">
 </head>
 <body>
+    <div id="loading-screen">SHANA AI...</div>
+
     <header>
-        <h1> SHANA AI Application</h1>
+        <h1>SHANA AI Application</h1>
         <nav>
             <ul>
-                <li><a href="#news">Berita AI</a></li>
+                <li><a href="#chat">Chat dengan AI</a></li>
                 <li><a href="#crypto">Crypto Swap</a></li>
                 <li><a href="#about">Tentang Admin</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="news">
-        <h2>Berita AI</h2>
-        <div id="news-content">
-            <!-- Berita akan dimuat di sini -->
+    <section id="chat">
+        <h2>Chat dengan AI</h2>
+        <form id="chat-form">
+            <input type="text" id="user-input" placeholder="Tanyakan sesuatu..." required>
+            <button type="submit">Kirim</button>
+        </form>
+        <div id="chat-response">
+            <!-- Respon AI akan ditampilkan di sini -->
         </div>
     </section>
 
     <section id="crypto">
         <h2>Crypto Swap</h2>
-        <form id="crypto-form">
-            <label for="crypto-amount">Jumlah:</label>
-            <input type="number" id="crypto-amount" name="crypto-amount">
-            <label for="crypto-from">Dari:</label>
-            <input type="text" id="crypto-from" name="crypto-from">
-            <label for="crypto-to">Ke:</label>
-            <input type="text" id="crypto-to" name="crypto-to">
-            <button type="submit">Swap</button>
-        </form>
-        <div id="crypto-result">
-            <!-- Hasil swap akan ditampilkan di sini -->
-        </div>
+        <a href="https://yourcryptoswaplink.com" target="_blank">
+            <button>Swap Crypto</button>
+        </a>
     </section>
 
     <section id="about">
@@ -46,6 +43,6 @@
         <p>Admin: <span class="verified">Admin Name</span></p>
     </section>
 
-    <script src="./shanaai/script.js"></script>
+    <script src="/shanaai/script.js"></script>
 </body>
 </html>
