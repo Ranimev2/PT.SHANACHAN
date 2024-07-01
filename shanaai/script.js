@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_KEY = 'YOUR_OPENAI_API_KEY_HERE';
+    const API_KEY = 'sk-proj-wgEFHaCT0hBQAT5DcEe7T3BlbkFJYy6X9hqGAC63OFSmH3BH';
     const API_URL = 'https://api.openai.com/v1/engines/davinci-codex/completions';
 
     // Remove loading screen
