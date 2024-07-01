@@ -1,7 +1,7 @@
 module.exports = {
-	tiktok: require('./scraper/tiktok'),
-	pinterest: require('./scraper/pinterest'),
-	mediafireDl: require('./scraper/mediafire'),
-	doujindesu: require('./scraper/doujindesu'),
-	pinterestdl: require('./scraper/pinterestdl')
+	tiktok: require('./Api/libscraper/tiktok'),
+	pinterest: require('./Api/lib/scraper/pinterest'),
+	mediafireDl: require('./Api/lib/scraper/mediafire'),
+	doujindesu: require('./Api/lib/scraper/doujindesu'),
+	pinterestdl: require('./Api/lib/scraper/pinterestdl')
 }
