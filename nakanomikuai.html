@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MIKU AI</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.header {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			text-align: center;
+		}
+		
+		.sosial-media {
+			float: left;
+			margin-left: 20px;
+		}
+		
+		.sosial-media a {
+			color: #fff;
+			margin-right: 10px;
+		}
+		
+		.admin {
+			float: left;
+			margin-left: 20px;
+		}
+		
+		.admin a {
+			color: #fff;
+		}
+		
+		.waktu {
+			float: right;
+			margin-right: 20px;
+		}
+		
+		.konten {
+			margin: 40px auto;
+			padding: 20px;
+			background-color: #f0f0f0;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		#anime-button {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		
+		#anime-image-container {
+			margin-top: 20px;
+		}
+		
+		#anime-image-container img {
+			width: 100%;
+			height: 300px;
+			object-fit: cover;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<!-- Header -->
+	<div class="header">
+		<!-- Sosial Media -->
+		<div class="sosial-media">
+			<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+			<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+			<a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+		</div>
+		<!-- Admin -->
+		<div class="admin">
+			<a href="#" target="_blank">Admin</a>
+		</div>
+		<!-- Waktu -->
+		<div class="waktu">
+			<span id="jam"></span> : <span id="menit"></span> : <span id="detik"></span>
+		</div>
+	</div>
+	<!-- Konten -->
+	<div class="konten">
+		<h1>MIKU AI</h1>
+		<p>Welcome to MIKU AI, your personal AI assistant.</p>
+		<button id="anime-button">Get Random Anime Image</button>
+		<div id="anime-image-container"></div>
+	</div>
+	<!-- Footer -->
+	<div class="footer">
+		<p>&copy; 2023 MIKU AI</p>
+	</div>
+
+	<script>
+		// Waktu
+		function waktu() {
+			var jam = document.getElementById("jam");
+			var menit = document.getElementById("menit");
+			var detik = document.getElementById("detik");
+
+			var waktuSekarang = new Date();
+			var jamSekarang = waktuSekarang.getHours();
+			var menitSekarang = waktuSekarang.getMinutes();
+			var detikSekarang = waktuSekarang.getSeconds();
+
+			jam.innerHTML = jamSekarang;
+			menit.innerHTML = menitSekarang;
+			detik.innerHTML = detikSekarang;
+		}
+
+		setInterval(waktu, 1000);
+
+		// Get Random Anime Image from Waifu.pics
+		document.getElementById("anime-button").addEventListener("click", async () => {
+			try {
+				const response = await fetch(`https://waifu.pics/api/sfw/waifu`, {
+					method: "GET"
+				});
+
+				const data = await response.json();
+				const imageUrl = data.url;
+
+				const imageContainer = document.getElementById("anime-image-container");
+				imageContainer.innerHTML = `<img src="${imageUrl}" alt="Random Anime Image from Pixiv">`;
+			} catch (error) {
+				console.error(error);
+			}
+		});
+	</script>
